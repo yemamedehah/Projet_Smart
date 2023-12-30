@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:get/get.dart';
 import 'package:projet_smart/config.dart';
 import 'package:projet_smart/widget/my_button.dart';
 import 'package:projet_smart/widget/my_text_filed.dart';
 import 'package:projet_smart/screens/signup_screen.dart';
+import 'package:projet_smart/screens/resultats_recherche_screen.dart';
 
 import '../app_constants.dart';
 
@@ -51,7 +53,13 @@ class LoginScreen extends StatelessWidget {
            
            
             SizedBox(height: fullHeight(context) * 0.12),
-            MyButton(onPressed: () {}, title: 'Se connecter'),
+            MyButton(onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  ResultatsRecherche()),
+              );
+            //  Get.to(ResultatsRecherche());
+            }, title: 'Se connecter'),
             SizedBox(height: fullHeight(context) * 0.04),
     Center(
   child: RichText(
