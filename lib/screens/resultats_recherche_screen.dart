@@ -63,47 +63,76 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
               ],
             ),
             SizedBox(height: 20.0), // Adjust the height between Row and Card
-       Card(
+   Card(
   elevation: 5.0,
   child: Padding(
     padding: const EdgeInsets.all(16.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          '06:30 - 15:00',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 21,
-            color: Colors.black,
-          ),
+        // Colonne pour les éléments à aligner à gauche
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '06:30 - 15:00',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 21,
+                color: Colors.black,
+              ),
+            ),
+            Text(
+              '6 janvier 2024',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+             SizedBox(height: 20.0),
+            Text(
+              'Mauritania Airlines',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            Text(
+              '1  Economy',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ],
         ),
-        Text(
-          '6 janvier 2024',
-          style: TextStyle(
-            fontSize: 16,
-          ),
+        // Colonne pour "320 MRU" et le bouton à aligner à gauche
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            
+            Text(
+              '320 MRU',
+              style: TextStyle(
+                fontSize: 16,
+                
+              ),
+
+            ),
+             SizedBox(height: 50.0),
+            SizedBox(
+              width: fullWidth(context) * 0.15,
+              child: MyButton(
+                onPressed: () {
+                  // Ajoutez la logique de votre bouton ici
+                },
+                title: 'Choisir',
+              ),
+            ),
+          ],
         ),
-        SizedBox(height: 20.0),
-        Text(
-          'Mauritania Airlines',
-          style: TextStyle(
-            fontSize: 16,
-          ),
-        ),
-        Text(
-          '1  Economy',
-          style: TextStyle(
-            fontSize: 16,
-          ),
-        ),
-      
-       
       ],
-      
     ),
   ),
 ),
+
 
           ],
         ),
