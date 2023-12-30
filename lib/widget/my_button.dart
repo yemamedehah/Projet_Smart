@@ -12,7 +12,7 @@ class MyButton extends StatefulWidget {
     super.key,
     this.onPressed,
     this.title,
-    this.color = AppConstants.primaryColor,
+      this.color = const Color(0xFF0044A5),
     this.textColor = Colors.white,
   });
 

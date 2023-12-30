@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class MyTextFiled extends StatefulWidget {
  final String? hint;
-  final bool hasIcon;
+  final bool obscure;
   bool obscureText = true;
-   MyTextFiled({super.key , this.hint, this.hasIcon = false});
+   MyTextFiled({super.key , this.hint, this.obscure = false});
 
   @override
   State<MyTextFiled> createState() => _MyTextFiledState();
@@ -13,18 +13,31 @@ class MyTextFiled extends StatefulWidget {
 class _MyTextFiledState extends State<MyTextFiled> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      obscureText: widget.obscureText,
+    return TextFormField(
+      obscuringCharacter: '*',
+   obscureText: widget.obscure ? widget.obscureText : false,
       decoration: InputDecoration(
-        hintText: widget.hint,
-        hintStyle:const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(32.0))),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
-        ),
-        suffixIcon: widget.hasIcon ? const Icon(Icons.visibility_off) : null,
-        
+        labelText: widget.hint,
+        labelStyle:const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600) ,
+    //  suffixIcon: widget.obscure
+    //         ? IconButton(
+    //             icon: Icon(widget.obscureText ? Icons.visibility : Icons.visibility_off),
+    //             onPressed: () {
+    //               setState(() {
+    //                 widget.obscureText = !widget.obscureText;
+    //               });
+    //             },
+    //           )
+    //         : null,
+         
+            
       ),
+      
+      
+  
+     
+        
+      
     );
   }
 }

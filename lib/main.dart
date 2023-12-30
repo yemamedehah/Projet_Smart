@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_smart/screens/login_screen.dart';
-//import 'package:get/get.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
