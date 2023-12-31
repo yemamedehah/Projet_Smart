@@ -50,7 +50,7 @@ class FirebaseService {
     }
   }
 
-//function recherche voyage
+//function recherche voyage selon cette donnee et renvoire result pour affiche dans autre sceen (resultat de recherche)
 Future<List<Vol>> searchvols(String origin, String destination, String date, String type, int passagers, String classe) async {
   try {
     print('Query Parameters: $origin, $destination, $date, $type, $passagers, $classe');

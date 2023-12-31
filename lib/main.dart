@@ -3,7 +3,7 @@ import 'package:projet_smart/screens/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:projet_smart/screens/resultats_recherche_screen.dart';
-import 'package:projet_smart/screens/voyage.dart';
+import 'package:projet_smart/screens/choisi_voyage_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Voyage()
+      home: LoginScreen()
     );
   }
 }
