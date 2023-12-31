@@ -1,5 +1,5 @@
 class Vol {
-  final String origine;
+  final String origin;
   final String destination;
   final String date;
   final String type;
@@ -7,7 +7,7 @@ class Vol {
   final String classe;
 
   Vol({
-    required this.origine,
+    required this.origin,
     required this.destination,
     required this.date,
     required this.type,
@@ -18,7 +18,7 @@ class Vol {
   // Factory method to create a Vol instance from a Map
   factory Vol.fromMap(Map<String, dynamic> map) {
     return Vol(
-      origine: map['origine'] ?? '',
+      origin: map['origin'] ?? '',
       destination: map['destination'] ?? '',
       date: map['date'] ?? '',
       type: map['type'] ?? '',

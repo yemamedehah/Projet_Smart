@@ -31,12 +31,12 @@ class _MyTextFiledState extends State<MyTextFiled> {
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: widget.borderColor ?? Colors.white,
+            color: widget.borderColor ?? Colors.grey,
           ),
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: widget.borderColor ?? Colors.white,
+            color: widget.borderColor ?? Colors.grey,
           ),
         ),
         hintStyle: TextStyle(

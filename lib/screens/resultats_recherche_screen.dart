@@ -20,6 +20,8 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+
+            //ligne contiw=ent origin vers destinatiov  chercher par user
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -35,7 +37,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
                     ),
                   ),
                 ),
-                //SizedBox(width: 30.0),
+                
                 Align(
                   alignment: Alignment.center,
                   child: Transform.rotate(
@@ -47,7 +49,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
                     ),
                   ),
                 ),
-               // SizedBox(width: 30.0),
+              
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerRight,
@@ -62,7 +64,10 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
                 ),
               ],
             ),
+
             SizedBox(height: 100.0), // Adjust the height between Row and Card
+
+              // list vols selon recherche voyage effectue par user
    Card(
   elevation: 5.0,
   child: Padding(
@@ -70,7 +75,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Colonne pour les éléments à aligner à gauche
+       
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -103,7 +108,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
             ),
           ],
         ),
-        // Colonne pour "320 MRU" et le bouton à aligner à gauche
+        
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -134,7 +139,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
     ),
   ),
 ),
-
+  // si il n'ya pas de vol selon recherche user affiche cette message
 // Center(
 //   child: Container(
 //     padding: const EdgeInsets.all(16.0),

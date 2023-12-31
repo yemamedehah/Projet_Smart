@@ -6,7 +6,7 @@ TextEditingController originController = TextEditingController();
   TextEditingController destinationController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController typeController = TextEditingController();
-  TextEditingController passengersController = TextEditingController();
+  TextEditingController passagersController = TextEditingController();
   TextEditingController classController = TextEditingController();
   var isLoading = false.obs;
 

@@ -7,6 +7,8 @@ import '../controllers/vols_controller.dart';
 import 'package:projet_smart/volclass/vol.dart';
 
 class FirebaseService {
+  // function signup create user
+
   Future<bool> signUp(String email, String password) async {
     try {
       final credential =
@@ -28,7 +30,7 @@ class FirebaseService {
     }
     return false;
   }
-
+  // function login user
   Future<bool> login(String email, String password) async {
     try {
       final credential = await FirebaseAuth.instance
@@ -48,16 +50,18 @@ class FirebaseService {
     }
   }
 
-  Future<List<Vol>> searchvols(String origin, String destination, String date, String type, int passengers, String Class) async {
+//function recherche voyage
+Future<List<Vol>> searchvols(String origin, String destination, String date, String type, int passagers, String classe) async {
   try {
+    print('Query Parameters: $origin, $destination, $date, $type, $passagers, $classe');
     var querySnapshot = await FirebaseFirestore.instance
         .collection('Vols')
-        .where('origine', isEqualTo: origin)
+        .where('origin', isEqualTo: origin)
         .where('destination', isEqualTo: destination)
         .where('date', isEqualTo: date)
         .where('type', isEqualTo: type)
-        .where('passagers', isEqualTo: passengers)
-        .where('classe', isEqualTo: Class)
+        .where('passagers', isEqualTo: passagers)
+        .where('classe', isEqualTo: classe)
         .get();
 
     // Convert the query results into a list of Vol objects
@@ -66,8 +70,10 @@ class FirebaseService {
 
     return results;
   } catch (error) {
+    print('Error fetching data: $error');
     throw error;
   }
 }
+
 
 }

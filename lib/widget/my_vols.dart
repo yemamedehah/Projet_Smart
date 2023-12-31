@@ -27,6 +27,8 @@ class _MyVolsState extends State<MyVols> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
+
+      //form qui permet a user de chercher voyage en saisier cette donnee
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -83,11 +85,14 @@ class _MyVolsState extends State<MyVols> {
                           ),
                         ),
                         SizedBox(width: 40.0),
+                        
                         Expanded(
                           child: MyDropdown(
+                            title: "Type",
                             controller: _volsController.typeController,
                             items: ["One Way", "Round Trip", "Multi-city"],
                             textColor: Colors.white,
+                            borderColor: Colors.white,
                           ),
                         ),
                       ],
@@ -102,7 +107,7 @@ class _MyVolsState extends State<MyVols> {
                         Expanded(
                           child: MyTextFiled(
                             hint: "Passagers",
-                            controller: _volsController.passengersController,
+                            controller: _volsController.passagersController,
                             textColor: Colors.white,
                             hintColor: Colors.white,
                             borderColor: Colors.white,
@@ -112,9 +117,12 @@ class _MyVolsState extends State<MyVols> {
                         Expanded(
 
                           child: MyDropdown(
+                            title: "Classe",
                             controller: _volsController.classController,
                             items: ["Economy", "Business", "First Class"],
                             textColor: Colors.white,
+                             borderColor: Colors.white,
+                            
                           ),
                         ),
                       ],
@@ -137,7 +145,7 @@ class _MyVolsState extends State<MyVols> {
 
                    if (_formKey.currentState!.validate()) {
                             _volsController.setIsLoading(true);
-                         int passengers = int.tryParse(_volsController.passengersController.text) ?? 0;
+                         int passengers = int.tryParse(_volsController.passagersController.text) ?? 0;
 var loginResult = await _firebaseService.searchvols(
   _volsController.originController.text,
   _volsController.destinationController.text,
@@ -159,7 +167,7 @@ var loginResult = await _firebaseService.searchvols(
                           }
                           else {
                               _volsController.setIsLoading(false);
-                              showSnackbarError('Login failed !');
+                              showSnackbarError('search failed !');
                             }
            
             }, title: 'Recherche')),

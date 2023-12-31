@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projet_smart/screens/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:projet_smart/screens/resultats_recherche_screen.dart';
 import 'package:projet_smart/screens/voyage.dart';
 import 'firebase_options.dart';
 
