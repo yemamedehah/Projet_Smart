@@ -2,20 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:projet_smart/config.dart';
+import 'package:projet_smart/screens/voyage.dart';
 import 'package:projet_smart/widget/my_button.dart';
 import 'package:projet_smart/widget/my_text_filed.dart';
 import 'package:projet_smart/screens/signup_screen.dart';
 import 'package:projet_smart/screens/resultats_recherche_screen.dart';
 
 import '../app_constants.dart';
+import '../utils.dart';
+import '../controllers/auth_controller.dart';
+import '../services/firebase_service.dart';
 
 class LoginScreen extends StatelessWidget {
+    final AuthController _authController = Get.put(AuthController());
+  final FirebaseService _firebaseService = FirebaseService();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-      child:Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      body: Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 40.0),
+        child: SingleChildScrollView(
+          child: Form(
+           key: _formKey,
+     
         
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,19 +58,39 @@ class LoginScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 5), // L'espacement au-dessus et en dessous de la ligne
             ),
             SizedBox(height: fullHeight(context) * 0.08),
-            MyTextFiled(hint: 'Email'),
+            MyTextFiled(hint: 'Email',
+            controller: _authController.emailController),
             SizedBox(height: fullHeight(context) * 0.02),
-            MyTextFiled(hint: 'Mot de passe', obscure: true),
+            MyTextFiled(hint: 'Mot de passe', obscure: true,
+            controller: _authController.passwordController),
            
            
             SizedBox(height: fullHeight(context) * 0.12),
-            MyButton(onPressed: () {
-                Navigator.push(
+            Obx(() => _authController.isLoading.value
+                    ? const Center(child: CircularProgressIndicator())
+            :MyButton(onPressed: () async {
+
+                   if (_formKey.currentState!.validate()) {
+                            _authController.setIsLoading(true);
+                            var loginResult = await _firebaseService.login(
+                                _authController.emailController.text,
+                                _authController.passwordController.text);
+                            if (loginResult == true) {
+                              _authController.setIsLoading(false);
+                                                Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  ResultatsRecherche()),
+                MaterialPageRoute(builder: (context) =>  Voyage()),
               );
-            //  Get.to(ResultatsRecherche());
-            }, title: 'Se connecter'),
+                         
+                            }
+                             
+                          }
+                          else {
+                              _authController.setIsLoading(false);
+                              showSnackbarError('Login failed !');
+                            }
+           
+            }, title: 'Se connecter')),
             SizedBox(height: fullHeight(context) * 0.04),
     Center(
   child: RichText(
@@ -93,7 +124,8 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-    )
+        ),
+    ),
     );
   }
 }

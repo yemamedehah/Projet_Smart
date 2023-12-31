@@ -33,8 +33,8 @@ class _MyButtonState extends State<MyButton> {
               elevation: 3,
               foregroundColor: widget.textColor,
               textStyle: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: fontSize10(context) * 1.2)),
+                  fontWeight: FontWeight.w100,
+                  fontSize: fontSize10(context) * 1)),
           child: Text(
             widget.title!,
           )),
