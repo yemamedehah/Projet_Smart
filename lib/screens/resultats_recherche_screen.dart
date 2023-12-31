@@ -16,7 +16,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
     return Scaffold(
       appBar: MyAppBar(appbartext: "Résultats de recherche"),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -30,12 +30,12 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
                       'London',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
+                        fontSize: 20,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: 20.0),
+                //SizedBox(width: 30.0),
                 Align(
                   alignment: Alignment.center,
                   child: Transform.rotate(
@@ -47,7 +47,7 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
                     ),
                   ),
                 ),
-                SizedBox(width: 20.0),
+               // SizedBox(width: 30.0),
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerRight,
@@ -55,75 +55,116 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
                       'Berlin',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
+                        fontSize: 20,
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20.0), // Adjust the height between Row and Card
-   Card(
-  elevation: 5.0,
-  child: Padding(
+            SizedBox(height: 100.0), // Adjust the height between Row and Card
+//    Card(
+//   elevation: 5.0,
+//   child: Padding(
+//     padding: const EdgeInsets.all(16.0),
+//     child: Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//       children: [
+//         // Colonne pour les éléments à aligner à gauche
+//         Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Text(
+//               '06:30 - 15:00',
+//               style: TextStyle(
+//                 fontWeight: FontWeight.bold,
+//                 fontSize: 21,
+//                 color: Colors.black,
+//               ),
+//             ),
+//             Text(
+//               '6 janvier 2024',
+//               style: TextStyle(
+//                 fontSize: 16,
+//               ),
+//             ),
+//              SizedBox(height: 20.0),
+//             Text(
+//               'Mauritania Airlines',
+//               style: TextStyle(
+//                 fontSize: 16,
+//               ),
+//             ),
+//             Text(
+//               '1  Economy',
+//               style: TextStyle(
+//                 fontSize: 16,
+//               ),
+//             ),
+//           ],
+//         ),
+//         // Colonne pour "320 MRU" et le bouton à aligner à gauche
+//         Column(
+//           crossAxisAlignment: CrossAxisAlignment.end,
+//           children: [
+            
+//             Text(
+//               '320 MRU',
+//               style: TextStyle(
+//                 fontSize: 16,
+//                  fontWeight: FontWeight.bold,
+                 
+                
+//               ),
+
+//             ),
+//              SizedBox(height: 50.0),
+//              SizedBox(
+//               width: fullWidth(context) * 0.3,
+//               child: MyButton(
+//                 onPressed: () {
+//                   // Ajoutez la logique de votre bouton ici
+//                 },
+//                 title: 'Choisir',
+//               ),
+//             ),
+//           ],
+//         ),
+//       ],
+//     ),
+//   ),
+// ),
+
+Center(
+  child: Container(
     padding: const EdgeInsets.all(16.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Colonne pour les éléments à aligner à gauche
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        // Première ligne avec l'icône de danger
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              '06:30 - 15:00',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 21,
-                color: Colors.black,
-              ),
+            Icon(
+              Icons.warning_amber_outlined,
+              color: Colors.red,
+              size: 60,
             ),
-            Text(
-              '6 janvier 2024',
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-             SizedBox(height: 20.0),
-            Text(
-              'Mauritania Airlines',
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-            Text(
-              '1  Economy',
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
+            SizedBox(width: 20), // Ajout de l'espace
           ],
         ),
-        // Colonne pour "320 MRU" et le bouton à aligner à gauche
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+        // Deuxième ligne avec le texte
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            
             Text(
-              '320 MRU',
+              "Il n'y a aucun vol trouvé ce jour",
               style: TextStyle(
-                fontSize: 16,
-                
-              ),
-
-            ),
-             SizedBox(height: 50.0),
-            SizedBox(
-              width: fullWidth(context) * 0.15,
-              child: MyButton(
-                onPressed: () {
-                  // Ajoutez la logique de votre bouton ici
-                },
-                title: 'Choisir',
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
               ),
             ),
           ],
@@ -132,6 +173,9 @@ class _ResultatsRechercheState extends State<ResultatsRecherche> {
     ),
   ),
 ),
+
+
+
 
 
           ],
