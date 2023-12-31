@@ -13,7 +13,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
           color: Colors.white,
           fontSize: 30,
-          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
         ),
       ),
       backgroundColor: const Color(0xFF0044A5),
