@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../config.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? appbartext;
@@ -14,15 +13,16 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
           color: Colors.white,
           fontSize: 30,
+          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
         ),
       ),
       backgroundColor: const Color(0xFF0044A5),
       centerTitle: true,
-      toolbarHeight: 140.0, // Set your desired height here
-      iconTheme: IconThemeData(color: Colors.white), // Set arrow color to white
+      toolbarHeight: 140.0,
+      iconTheme: IconThemeData(color: Colors.white),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(140.0); // Adjust accordingly
+  Size get preferredSize => Size.fromHeight(140.0);
 }

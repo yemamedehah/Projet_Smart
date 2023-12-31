@@ -33,7 +33,7 @@ class _MyVolsState extends State<MyVols> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: EdgeInsets.all(50.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),

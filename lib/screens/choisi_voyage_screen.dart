@@ -22,7 +22,7 @@ class _VoyageState extends State<Voyage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(appbartext: "Choisissez Votre voyage"),
+       appBar: MyAppBar(appbartext: votrevoyage ? "Choisissez Votre voyage" : "Choisissez Votre hôtel"),
             body: SingleChildScrollView(
   child:Column(
         children: [
